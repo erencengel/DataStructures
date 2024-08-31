@@ -70,5 +70,8 @@ public class BigOSingleLoop {
         endTime = System.currentTimeMillis();
         System.out.println("Number of operations with logarithmic: " + numberOfOperations + " in " + (endTime-startTime) + " miliseconds");
 
+
+        //update
+
     }
 }
