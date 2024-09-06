@@ -1,4 +1,4 @@
-package day1;
+package AlgorithmAnaylsis_Array_ArrayList;
 
 import java.util.ArrayList;
 
