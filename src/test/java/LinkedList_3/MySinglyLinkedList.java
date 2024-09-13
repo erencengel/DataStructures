@@ -202,7 +202,7 @@ public class MySinglyLinkedList {
         }
 
         //ptr1 is on the kth element from the last
-        return ptr1.id;;
+        return ptr1.id;
     }
 
     /**
