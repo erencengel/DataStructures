@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList_3;
 
 public class SingleLinkedListApp {
 
@@ -10,6 +10,8 @@ public class SingleLinkedListApp {
         for (int i = 0 ; i < 15; i++) {
             mylist.add(i);
         }
+
+        System.out.println("mylist.getNth(12).id = " + mylist.getNth(14).id);
 
         System.out.println(mylist.indexOfAlternative(10));
 

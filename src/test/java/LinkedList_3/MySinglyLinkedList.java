@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList_3;
 
 public class MySinglyLinkedList {
 
@@ -94,8 +94,10 @@ public class MySinglyLinkedList {
         return -1;
     }
 
-    //implement a method that makes insertion into first element of linkedList
-    //author Eren Ç.
+    /**
+     * implement a method that makes insertion into first element of linkedList
+     * author Eren Ç.
+     */
     void addFirst(int data) {
         Node addedElement = new Node(data);
         if(isEmpty()) {
@@ -104,6 +106,44 @@ public class MySinglyLinkedList {
         }
         addedElement.next = head;
         head = addedElement;
+    }
+
+    /**
+     * get the Kth element from the last
+     * author Eren Ç.
+     */
+    Node getNth(int value) {
+
+        if(isEmpty()) return null;
+
+        Node fast = head;
+        Node slow = head;
+        Node element = head;
+
+        for (int i = 0; i < value; i++) {
+            fast = fast.next;
+        }
+
+        while (element != null) {
+            for (int i = 0; i < value; i++) {
+                fast = fast.next;
+                slow = slow.next;
+                if(fast.next == null) return slow;
+            }
+            element = element.next;
+        }
+
+        return null;
+
+    }
+
+    /**
+     * delete the Kth element from the last
+     * author is Eren Ç.
+     */
+    void deleteLastNthElement(int value) {
+        Node nth = getNth(value);
+        deleteById(nth.id);
     }
 
 
@@ -116,6 +156,93 @@ public class MySinglyLinkedList {
                 System.out.print(current.id + " => ");
             }
             current = current.next;
+        }
+    }
+
+    /**
+     * created by Instructor Fatih
+     * add element to the beginning
+     *
+     */
+    void addFirst_Instructor(int data) {
+        //create a new node object from data
+        Node node = new Node(data);
+
+        if(isEmpty()) {
+            //case-1: list is empty
+            head=tail=node;
+        } else {
+            //case-2: list is not empty
+            node.next = head;
+            head = node;
+        }
+        //increase size
+        size++;
+    }
+
+    /**
+     * author is Fatih
+     * get the Kth element from the last
+     */
+    int getKthItemFromLast(int k) {
+
+        //create 2 pointers
+        Node ptr1 = head;
+        Node ptr2 = head;
+
+        //move p2 k-1 times
+        for (int i = 0; i < k-1; i++) {
+            ptr2 = ptr2.next;
+        }
+
+        //move both pointers until ptr2 hits the last element
+        while (ptr2 != null) {
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+
+        //ptr1 is on the kth element from the last
+        return ptr1.id;;
+    }
+
+    /**
+     * delete Kth element from the last
+     * author is Fatih
+     */
+
+    void removeKthItemFromLast(int k) {
+
+        //create 3 pointers
+        Node ptr1 = head;
+        Node ptr2 = head;
+        Node prev = null;
+
+        //move p2 k-1 times
+        for (int i = 0; i < k-1; i++) {
+            ptr2 = ptr2.next;
+        }
+
+        //move both pointers until ptr2 hits the last element
+        while (ptr2 != null) {
+            prev = ptr1;
+            ptr1 = ptr1.next;
+            ptr2 = ptr2.next;
+        }
+
+        //ptr1 is on the kth element from the last
+        //do delete operation
+        if(ptr1 == head) {
+            head = ptr1.next;
+            ptr1.next = null;
+            size--;
+        }else if(ptr1 == tail){
+            tail = prev;
+            prev.next = null;
+            size--;
+        }else {
+            prev.next = ptr1.next;
+            ptr1.next = null;
+            size--;
         }
     }
 
