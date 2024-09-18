@@ -46,7 +46,7 @@ public class MyStack<T> {
     public T pop() {
         SNode peekNode;
 
-        if(isEmpty()) throw  new NoSuchElementException();
+        if(isEmpty()) throw new NoSuchElementException();
 
         if(top == bottom) {
             //stack has one element
