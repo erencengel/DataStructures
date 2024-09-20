@@ -1,5 +1,8 @@
 package Stack_4;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Stack_Assignment {
 
     /**
@@ -24,18 +27,35 @@ public class Stack_Assignment {
      */
 
 
-    int[] buildingsWhoSeeSun(int[] buildings) {
+    int[] buildingsWhoSeeSun(Integer[] buildings) {
+        //create an empty stack
         MyStack<Integer> myStack = new MyStack<>();
+
+        //add first item
         myStack.push(buildings[0]);
 
-
+        //create a loop that will add the following items
         for (int i = 1; i < buildings.length; i++) {
+            //inside the loop, there should be a condition that
+            //  1. if the following element is smaller than the previous one, no action needed
+            //  2. if the following element is taller than the previous one
+            //      2.1. add the index number of the element
+            //      2.2. check if the added element is taller than the previous ones, if an element is in the list but shorter than the last one, then remove it
+            Integer element = buildings[i];
+            if(element < myStack.bottom.value){
+                continue;
+            } else {
+                
+            }
+
+
 
 
         }
 
 
-        return new int[0];
+
+        return null;
     }
 
 

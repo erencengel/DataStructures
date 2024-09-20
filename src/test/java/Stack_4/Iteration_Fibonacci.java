@@ -1,6 +1,6 @@
 package Stack_4;
 
-public class IterationFibonacci {
+public class Iteration_Fibonacci {
 
     public static void main(String[] args) {
         System.out.println(fibonacci(0));
